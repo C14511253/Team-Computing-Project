@@ -13,13 +13,22 @@ Finished:
 void object_1(void);
 
 
-
 //MotorB is right wheel
 //MotorC is left wheel
 
 task main()
 {
-	object_1();
+	//When robot senses an object
+	while ( SensorValue(sonarSensor) > 25)
+	{
+		motor[motorB] = 50;
+		motor[motorC] = 50;	
+		
+		//Call function
+		object_1();
+	}//End while
+	
+
 }//End main()
 
 
